@@ -13,6 +13,7 @@ import numpy as np
 from tqdm.auto import tqdm
 
 from pandas_profiling.model.messages import MessageType
+from pandas_profiling.utils.l10n import LocalizationRegistry
 from pandas_profiling.version import __version__
 from pandas_profiling.utils.dataframe import rename_index
 from pandas_profiling.utils.paths import get_config_default, get_config_minimal
@@ -68,6 +69,17 @@ class ProfileReport(object):
         self.title = config["title"].get(str)
         self.description_set = description_set
         self.date_end = datetime.utcnow()
+
+        # localization settings
+        l10n_code = None
+        default_l10n_code = 'en-US'
+        if config['l10n'].exists():
+            l10n_code = config['l10n']
+
+        self.l10n_code = l10n_code or default_l10n_code
+
+        LocalizationRegistry.activate(self.l10n_code)
+        # end localization settings
 
         disable_progress_bar = not config["progress_bar"].get(bool)
 

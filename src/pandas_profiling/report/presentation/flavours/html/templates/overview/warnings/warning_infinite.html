@@ -1,6 +1,6 @@
 <td>
-    <a class="anchor" href="#pp_var_{{ message.anchor_id }}"><code>{{ message.column_name }}</code></a> has {{ message.values['n_infinite'] }} ({{ message.values['p_infinite'] | fmt_percent }}) infinite values
+    <a class="anchor" href="#pp_var_{{ message.anchor_id }}"><code>{{ message.column_name }}</code></a> {% trans %}has{% endtrans %} {{ message.values['n_infinite'] }} ({{ message.values['p_infinite'] | fmt_percent }}) {{ gettext("infinite values") }}
 </td>
 <td>
-    <span class="label label-default">Infinite</span>
+    <span class="label label-default">{% trans %}Infinite{% endtrans %}</span>
 </td>

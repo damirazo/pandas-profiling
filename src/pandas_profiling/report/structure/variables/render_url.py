@@ -10,6 +10,7 @@ from pandas_profiling.report.presentation.core import (
     FrequencyTableSmall,
     Overview,
 )
+from pandas_profiling.utils.l10n import gettext as _
 
 
 def render_url(summary):
@@ -33,32 +34,32 @@ def render_url(summary):
 
     full_frequency_table = FrequencyTable(
         template_variables["freq_table_rows"],
-        name="Full",
+        name=_("Full"),
         anchor_id="{varid}full_frequency".format(varid=summary["varid"]),
     )
     scheme_frequency_table = FrequencyTable(
         template_variables["freqtable_scheme"],
-        name="Scheme",
+        name=_("Scheme"),
         anchor_id="{varid}scheme_frequency".format(varid=summary["varid"]),
     )
     netloc_frequency_table = FrequencyTable(
         template_variables["freqtable_netloc"],
-        name="Netloc",
+        name=_("Netloc"),
         anchor_id="{varid}netloc_frequency".format(varid=summary["varid"]),
     )
     path_frequency_table = FrequencyTable(
         template_variables["freqtable_path"],
-        name="Path",
+        name=_("Path"),
         anchor_id="{varid}path_frequency".format(varid=summary["varid"]),
     )
     query_frequency_table = FrequencyTable(
         template_variables["freqtable_query"],
-        name="Query",
+        name=_("Query"),
         anchor_id="{varid}query_frequency".format(varid=summary["varid"]),
     )
     fragment_frequency_table = FrequencyTable(
         template_variables["freqtable_fragment"],
-        name="Fragment",
+        name=_("Fragment"),
         anchor_id="{varid}fragment_frequency".format(varid=summary["varid"]),
     )
 
@@ -77,16 +78,16 @@ def render_url(summary):
 
     table = Table(
         [
-            {"name": "Distinct count", "value": summary["n_unique"], "fmt": "fmt"},
-            {"name": "Unique (%)", "value": summary["p_unique"], "fmt": "fmt_percent"},
-            {"name": "Missing", "value": summary["n_missing"], "fmt": "fmt"},
+            {"name": _("Distinct count"), "value": summary["n_unique"], "fmt": "fmt"},
+            {"name": _("Unique (%)"), "value": summary["p_unique"], "fmt": "fmt_percent"},
+            {"name": _("Missing"), "value": summary["n_missing"], "fmt": "fmt"},
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": summary["p_missing"],
                 "fmt": "fmt_percent",
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": summary["memory_size"],
                 "fmt": "fmt_bytesize",
             },

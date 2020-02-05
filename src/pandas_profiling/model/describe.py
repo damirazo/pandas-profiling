@@ -34,6 +34,7 @@ from pandas_profiling.visualisation.missing import (
     missing_dendrogram,
 )
 from pandas_profiling.visualisation.plot import scatter_pairwise
+from pandas_profiling.utils.l10n import gettext as _
 
 
 def describe_numeric_1d(series: pd.Series, series_description: dict) -> dict:
@@ -216,7 +217,7 @@ def describe_path_1d(series: pd.Series, series_description: dict) -> dict:
 
     common_prefix = os.path.commonprefix(list(series))
     if common_prefix == "":
-        common_prefix = "No common prefix"
+        common_prefix = _("No common prefix")
 
     stats = {"common_prefix": common_prefix}
 
@@ -474,10 +475,10 @@ def get_missing_diagrams(df: pd.DataFrame, table_stats: dict) -> dict:
         }[name]
 
     missing_map = {
-        "bar": {"min_missing": 0, "name": "Count"},
-        "matrix": {"min_missing": 0, "name": "Matrix"},
-        "heatmap": {"min_missing": 2, "name": "Heatmap"},
-        "dendrogram": {"min_missing": 1, "name": "Dendrogram"},
+        "bar": {"min_missing": 0, "name": _("Count")},
+        "matrix": {"min_missing": 0, "name": _("Matrix")},
+        "heatmap": {"min_missing": 2, "name": _("Heatmap")},
+        "dendrogram": {"min_missing": 1, "name": _("Dendrogram")},
     }
 
     missing_map = {
@@ -493,7 +494,9 @@ def get_missing_diagrams(df: pd.DataFrame, table_stats: dict) -> dict:
             total=len(missing_map), desc="missing", disable=disable_progress_bar
         ) as pbar:
             for name, settings in missing_map.items():
-                pbar.set_description_str("missing [{name}]".format(name=name))
+                pbar.set_description_str("{missing} [{name}]".format(
+                    missing=_("missing"),
+                    name=name))
                 try:
                     if name != "heatmap" or (
                         table_stats["n_vars_with_missing"]
@@ -611,7 +614,7 @@ def describe(df: pd.DataFrame) -> dict:
     scatter_matrix = get_scatter_matrix(df, variables)
 
     # Table statistics
-    with tqdm(total=1, desc="table", disable=disable_progress_bar) as pbar:
+    with tqdm(total=1, desc=_("table"), disable=disable_progress_bar) as pbar:
         table_stats = describe_table(df, variable_stats)
         pbar.update(1)
 
@@ -619,19 +622,19 @@ def describe(df: pd.DataFrame) -> dict:
     missing = get_missing_diagrams(df, table_stats)
 
     # Messages
-    with tqdm(total=3, desc="warnings", disable=disable_progress_bar) as pbar:
-        pbar.set_description_str("warnings [table]")
+    with tqdm(total=3, desc=_("warnings"), disable=disable_progress_bar) as pbar:
+        pbar.set_description_str(f"{_('warnings')} [table]")
         messages = check_table_messages(table_stats)
         pbar.update(1)
-        pbar.set_description_str("warnings [variables]")
+        pbar.set_description_str(f"{_('warnings')} [variables]")
         for col, description in series_description.items():
             messages += check_variable_messages(col, description)
         pbar.update(1)
-        pbar.set_description_str("warnings [correlations]")
+        pbar.set_description_str(f"{_('warnings')} [correlations]")
         messages += check_correlation_messages(correlations)
         pbar.update(1)
 
-    with tqdm(total=1, desc="package", disable=disable_progress_bar) as pbar:
+    with tqdm(total=1, desc=_("package"), disable=disable_progress_bar) as pbar:
         package = {
             "pandas_profiling_version": __version__,
             "pandas_profiling_config": config.dump(),

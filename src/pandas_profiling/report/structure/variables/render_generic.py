@@ -1,5 +1,6 @@
 from pandas_profiling.report.presentation.core import Overview, Table, Sequence, HTML
 from pandas_profiling.report.structure.variables import render_common
+from pandas_profiling.utils.l10n import gettext as _
 
 
 def render_generic(summary):
@@ -8,26 +9,26 @@ def render_generic(summary):
     info = Overview(
         anchor_id=summary["varid"],
         warnings=summary["warnings"],
-        var_type="Unsupported",
+        var_type=_("Unsupported"),
         var_name=summary["varname"],
     )
 
     table = Table(
         [
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": summary["n_missing"],
                 "fmt": "fmt",
                 "class": "alert" if "n_missing" in summary["warn_fields"] else "",
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": summary["p_missing"],
                 "fmt": "fmt_percent",
                 "class": "alert" if "p_missing" in summary["warn_fields"] else "",
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": summary["memory_size"],
                 "fmt": "fmt_bytesize",
             },

@@ -13,6 +13,7 @@ from pandas_profiling.report.presentation.core import (
     Overview,
 )
 from pandas_profiling.report.structure.variables.render_common import render_common
+from pandas_profiling.utils.l10n import gettext as _
 
 
 def render_categorical(summary):
@@ -31,37 +32,38 @@ def render_categorical(summary):
     # Top
     # Element composition
     info = Overview(
-        summary["varid"], summary["varname"], "Categorical", summary["warnings"]
+        summary["varid"], summary["varname"],
+        _("Categorical"), summary["warnings"]
     )
 
     table = Table(
         [
             {
-                "name": "Distinct count",
+                "name": _("Distinct count"),
                 "value": summary["n_unique"],
                 "fmt": "fmt",
                 "class": "alert" if "n_unique" in summary["warn_fields"] else "",
             },
             {
-                "name": "Unique (%)",
+                "name": _("Unique (%)"),
                 "value": summary["p_unique"],
                 "fmt": "fmt_percent",
                 "class": "alert" if "p_unique" in summary["warn_fields"] else "",
             },
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": summary["n_missing"],
                 "fmt": "fmt",
                 "class": "alert" if "n_missing" in summary["warn_fields"] else "",
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": summary["p_missing"],
                 "fmt": "fmt_percent",
                 "class": "alert" if "p_missing" in summary["warn_fields"] else "",
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": summary["memory_size"],
                 "fmt": "fmt_bytesize",
             },
@@ -77,7 +79,7 @@ def render_categorical(summary):
     items = []
     frequency_table = FrequencyTable(
         template_variables["freq_table_rows"],
-        name="Common Values",
+        name=_("Common Values"),
         anchor_id="{varid}common_values".format(varid=summary["varid"]),
     )
 
@@ -88,22 +90,22 @@ def render_categorical(summary):
         length_table = Table(
             [
                 {
-                    "name": "Max length",
+                    "name": _("Max length"),
                     "value": summary["max_length"],
                     "fmt": "fmt_numeric",
                 },
                 {
-                    "name": "Mean length",
+                    "name": _("Mean length"),
                     "value": summary["mean_length"],
                     "fmt": "fmt_numeric",
                 },
                 {
-                    "name": "Min length",
+                    "name": _("Min length"),
                     "value": summary["min_length"],
                     "fmt": "fmt_numeric",
                 },
             ],
-            name="Length",
+            name=_("Length"),
             anchor_id="{varid}lengthstats".format(varid=summary["varid"]),
         )
 
@@ -112,15 +114,15 @@ def render_categorical(summary):
         length = Image(
             histogram(summary["length"], summary, histogram_bins),
             image_format=image_format,
-            alt="Scatter",
-            name="Length",
+            alt=_("Scatter"),
+            name=_("Length"),
             anchor_id="{varid}length".format(varid=summary["varid"]),
         )
 
         tbl = Sequence(
             [length, length_table],
             anchor_id="{varid}tbl".format(varid=summary["varid"]),
-            name="Length",
+            name=_("Length"),
             sequence_type="grid",
         )
 
@@ -135,7 +137,7 @@ def render_categorical(summary):
                 freq_table(
                     freqtable=vc, n=vc.sum(), max_number_to_print=n_freq_table_max
                 ),
-                name="Categories",
+                name=_("Categories"),
                 anchor_id="{varid}category_long_values".format(varid=summary["varid"]),
             )
         )
@@ -146,7 +148,7 @@ def render_categorical(summary):
                 freq_table(
                     freqtable=vc, n=vc.sum(), max_number_to_print=n_freq_table_max
                 ),
-                name="Scripts",
+                name=_("Scripts"),
                 anchor_id="{varid}script_values".format(varid=summary["varid"]),
             )
         )
@@ -157,14 +159,14 @@ def render_categorical(summary):
                 freq_table(
                     freqtable=vc, n=vc.sum(), max_number_to_print=n_freq_table_max
                 ),
-                name="Blocks",
+                name=_("Blocks"),
                 anchor_id="{varid}block_alias_values".format(varid=summary["varid"]),
             )
         )
 
         characters = Sequence(
             citems,
-            name="Characters",
+            name=_("Characters"),
             sequence_type="tabs",
             anchor_id="{varid}characters".format(varid=summary["varid"]),
         )

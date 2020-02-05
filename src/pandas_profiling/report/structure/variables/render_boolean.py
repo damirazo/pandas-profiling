@@ -9,6 +9,7 @@ from pandas_profiling.report.presentation.core import (
     Overview,
 )
 from pandas_profiling.report.structure.variables.render_common import render_common
+from pandas_profiling.utils.l10n import gettext as _
 
 
 def render_boolean(summary):
@@ -26,38 +27,38 @@ def render_boolean(summary):
     info = Overview(
         anchor_id=summary["varid"],
         warnings=summary["warnings"],
-        var_type="Boolean",
+        var_type=_("Boolean"),
         var_name=summary["varname"],
     )
 
     table = Table(
         [
             {
-                "name": "Distinct count",
+                "name": _("Distinct count"),
                 "value": summary["n_unique"],
                 "fmt": "fmt",
                 "class": "alert" if "n_unique" in summary["warn_fields"] else "",
             },
             {
-                "name": "Unique (%)",
+                "name": _("Unique (%)"),
                 "value": summary["p_unique"],
                 "fmt": "fmt_percent",
                 "class": "alert" if "p_unique" in summary["warn_fields"] else "",
             },
             {
-                "name": "Missing",
+                "name": _("Missing"),
                 "value": summary["n_missing"],
                 "fmt": "fmt",
                 "class": "alert" if "n_missing" in summary["warn_fields"] else "",
             },
             {
-                "name": "Missing (%)",
+                "name": _("Missing (%)"),
                 "value": summary["p_missing"],
                 "fmt": "fmt_percent",
                 "class": "alert" if "p_missing" in summary["warn_fields"] else "",
             },
             {
-                "name": "Memory size",
+                "name": _("Memory size"),
                 "value": summary["memory_size"],
                 "fmt": "fmt_bytesize",
             },
@@ -70,7 +71,7 @@ def render_boolean(summary):
 
     freqtable = FrequencyTable(
         template_variables["freq_table_rows"],
-        name="Frequency Table",
+        name=_("Frequency Table"),
         anchor_id="{varid}frequency_table".format(varid=summary["varid"]),
     )
 

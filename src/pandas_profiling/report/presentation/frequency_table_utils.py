@@ -1,4 +1,5 @@
 from typing import List, Dict
+from pandas_profiling.utils.l10n import gettext as _
 
 
 def freq_table(freqtable, n: int, max_number_to_print: int) -> List[Dict]:
@@ -53,7 +54,7 @@ def freq_table(freqtable, n: int, max_number_to_print: int) -> List[Dict]:
     if freq_other > min_freq:
         rows.append(
             {
-                "label": "Other values ({})".format(
+                "label": _("Other values ({})").format(
                     str(freqtable.count() - max_number_to_print)
                 ),
                 "width": freq_other / max_freq,
@@ -68,7 +69,7 @@ def freq_table(freqtable, n: int, max_number_to_print: int) -> List[Dict]:
     if freq_missing > min_freq:
         rows.append(
             {
-                "label": "(Missing)",
+                "label": _("(Missing)"),
                 "width": freq_missing / max_freq,
                 "count": freq_missing,
                 "percentage": float(freq_missing) / n,

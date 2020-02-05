@@ -5,6 +5,7 @@ from pandas_profiling.report.presentation.core import Image, FrequencyTable, Ove
 from pandas_profiling.report.structure.variables.render_categorical import (
     render_categorical,
 )
+from pandas_profiling.utils.l10n import gettext as _
 
 
 def render_path(summary):
@@ -34,31 +35,31 @@ def render_path(summary):
     # Bottom
     full = FrequencyTable(
         template_variables["freq_table_rows"],
-        name="Full",
+        name=_("Full"),
         anchor_id="{varid}full_frequency".format(varid=summary["varid"]),
     )
 
     stem = FrequencyTable(
         template_variables["freqtable_stem"],
-        name="Stem",
+        name=_("Stem"),
         anchor_id="{varid}stem_frequency".format(varid=summary["varid"]),
     )
 
     name = FrequencyTable(
         template_variables["freqtable_name"],
-        name="Name",
+        name=_("Name"),
         anchor_id="{varid}name_frequency".format(varid=summary["varid"]),
     )
 
     suffix = FrequencyTable(
         template_variables["freqtable_suffix"],
-        name="Suffix",
+        name=_("Suffix"),
         anchor_id="{varid}suffix_frequency".format(varid=summary["varid"]),
     )
 
     parent = FrequencyTable(
         template_variables["freqtable_parent"],
-        name="Parent",
+        name=_("Parent"),
         anchor_id="{varid}parent_frequency".format(varid=summary["varid"]),
     )
 
@@ -72,11 +73,12 @@ def render_path(summary):
         file_size_histogram = Image(
             histogram(summary["file_sizes"], summary, summary["histogram_bins"]),
             image_format=image_format,
-            alt="File size",
-            caption="<strong>Histogram with fixed size bins of file sizes (in bytes)</strong> (bins={})".format(
-                summary["histogram_bins"]
-            ),
-            name="File size",
+            alt=_("File size"),
+            caption=_(
+                "<strong>Histogram with fixed size bins of file sizes "
+                "(in bytes)</strong> (bins={})"
+            ).format(summary["histogram_bins"]),
+            name=_("File size"),
             anchor_id="{varid}file_size_histogram".format(varid=summary["varid"]),
         )
 

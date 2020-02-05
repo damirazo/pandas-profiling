@@ -12,6 +12,7 @@ import numpy as np
 from pandas_profiling.model.correlations import perform_check_correlation
 from pandas_profiling.config import config
 from pandas_profiling.model.base import Variable
+from pandas_profiling.utils.l10n import gettext as _
 
 
 @unique
@@ -87,14 +88,19 @@ class Message(object):
         # TODO: render in template
         name = self.message_type.name.replace("_", " ")
         if name == "HIGH CORRELATION":
-            name = '<abbr title="This variable has a high correlation with {num} fields: {title}">HIGH CORRELATION</abbr>'.format(
-                num=len(self.values["fields"]), title=", ".join(self.values["fields"])
+            name = _(
+                '<abbr title="This variable has a high correlation with'
+                ' {num} fields: {title}">HIGH CORRELATION</abbr>'
+            ).format(
+                num=len(self.values["fields"]),
+                title=", ".join(self.values["fields"])
             )
         return name
 
     def __repr__(self):
         return "[{message_type}] warning on column {column}".format(
-            message_type=self.message_type.name, column=self.column_name
+            message_type=self.message_type.name,
+            column=self.column_name
         )
 
 

@@ -14,7 +14,10 @@ from pandas_profiling.report.formatters import (
 package_loader = PackageLoader(
     "pandas_profiling", "report/presentation/flavours/html/templates"
 )
-jinja2_env = Environment(lstrip_blocks=True, trim_blocks=True, loader=package_loader)
+jinja2_env = Environment(
+    lstrip_blocks=True,
+    trim_blocks=True,
+    loader=package_loader)
 jinja2_env.filters["fmt_percent"] = fmt_percent
 jinja2_env.filters["fmt_bytesize"] = fmt_bytesize
 jinja2_env.filters["fmt_numeric"] = fmt_numeric

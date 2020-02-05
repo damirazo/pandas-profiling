@@ -1,6 +1,7 @@
 from typing import Any
 
 from pandas_profiling.report.presentation.abstract.renderable import Renderable
+from pandas_profiling.utils.l10n import gettext as _
 
 
 class Sequence(Renderable):
@@ -9,7 +10,7 @@ class Sequence(Renderable):
         self.sequence_type = sequence_type
 
     def __str__(self):
-        text = "Sequence\n"
+        text = f"{_('Sequence')}\n"
         if "items" in self.content:
             for id, item in enumerate(self.content["items"]):
                 text += "- {}: {}\n".format(id, str(item).replace("\n", "\n\t"))

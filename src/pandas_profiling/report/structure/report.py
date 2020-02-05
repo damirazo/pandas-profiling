@@ -38,6 +38,7 @@ from pandas_profiling.report.presentation.core import (
     Dataset,
     Sample,
 )
+from pandas_profiling.utils.l10n import gettext as _
 
 
 def get_missing_items(summary) -> list:
@@ -70,12 +71,12 @@ def get_correlation_items(summary) -> list:
     items = []
 
     key_to_data = {
-        "pearson": (-1, "Pearson's r"),
-        "spearman": (-1, "Spearman's ρ"),
-        "kendall": (-1, "Kendall's τ"),
-        "phi_k": (0, "Phik (φk)"),
-        "cramers": (0, "Cramér's V (φc)"),
-        "recoded": (0, "Recoded"),
+        "pearson": (-1, _("Pearson's r")),
+        "spearman": (-1, _("Spearman's ρ")),
+        "kendall": (-1, _("Kendall's τ")),
+        "phi_k": (0, _("Phik (φk)")),
+        "cramers": (0, _("Cramér's V (φc)")),
+        "recoded": (0, _("Recoded")),
     }
 
     image_format = config["plot"]["image_format"].get(str)
@@ -183,7 +184,7 @@ def get_sample_items(sample: dict):
         List of sample items to show in the interface.
     """
     items = []
-    names = {"head": "First rows", "tail": "Last rows"}
+    names = {"head": _("First rows"), "tail": _("Last rows")}
     for key, value in sample.items():
         items.append(
             Sample(
@@ -226,8 +227,11 @@ def get_scatter_matrix(scatter_matrix):
 
 
 def get_report_structure(
-    date_start: datetime, date_end: datetime, sample: dict, summary: dict
-) -> Renderable:
+            date_start: datetime,
+            date_end: datetime,
+            sample: dict,
+            summary: dict
+        ) -> Renderable:
     """Generate a HTML report from summary statistics and a given sample.
 
     Args:
@@ -241,7 +245,7 @@ def get_report_structure(
     scatter = Sequence(
         get_scatter_matrix(summary["scatter"]),
         sequence_type="tabs",
-        name="Interactions",
+        name=_("Interactions"),
         anchor_id="interactions",
     )
     collapse_warnings = config["warnings"]["collapse_if_more"].get(int)
@@ -260,36 +264,36 @@ def get_report_structure(
                 messages=warnings,
                 collapse_warnings=len(warnings) > collapse_warnings,
                 variables=summary["variables"],
-                name="Overview",
+                name=_("Overview"),
                 anchor_id="overview",
             ),
             Sequence(
                 render_variables_section(summary),
                 sequence_type="accordion",
-                name="Variables",
+                name=_("Variables"),
                 anchor_id="variables",
             ),
             scatter,
             Sequence(
                 get_correlation_items(summary),
                 sequence_type="tabs",
-                name="Correlations",
+                name=_("Correlations"),
                 anchor_id="correlations",
             ),
             Sequence(
                 get_missing_items(summary),
                 sequence_type="tabs",
-                name="Missing values",
+                name=_("Missing values"),
                 anchor_id="missing",
             ),
             Sequence(
                 get_sample_items(sample),
                 sequence_type="list",
-                name="Sample",
+                name=_("Sample"),
                 anchor_id="sample",
             ),
         ],
-        name="Report",
+        name=_("Report"),
         sequence_type="sections",
     )
 

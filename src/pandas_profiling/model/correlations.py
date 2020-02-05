@@ -14,6 +14,7 @@ from tqdm.auto import tqdm
 
 from pandas_profiling.config import config
 from pandas_profiling.model.base import Variable
+from pandas_profiling.utils.l10n import gettext as _
 
 
 def cramers_corrected_stat(confusion_matrix, correction: bool) -> float:
@@ -165,14 +166,12 @@ def calculate_correlations(df: pd.DataFrame, variables: dict) -> dict:
     if len(correlation_names) > 0:
         with tqdm(
             total=len(correlation_names),
-            desc="correlations",
+            desc=_("correlations"),
             disable=disable_progress_bar,
         ) as pbar:
             for correlation_name in correlation_names:
                 pbar.set_description_str(
-                    "correlations [{correlation_name}]".format(
-                        correlation_name=correlation_name
-                    )
+                    f"{_('correlations')} [{correlation_name}]"
                 )
 
                 if correlation_name in ["pearson", "spearman", "kendall"]:

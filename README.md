@@ -117,6 +117,8 @@ To generate the report, run:
 profile = ProfileReport(df, title='Pandas Profiling Report', html={'style':{'full_width':True}})
 ```
 
+#### Localization settings
+
 #### Jupyter Notebook
 
 We recommend generating reports interactively by using the Jupyter notebook. 
