@@ -12,3 +12,4 @@ astropy>=3.2.3
 tangled-up-in-unicode==0.0.3
 visions==0.2.2
 tqdm==4.42.1
+Babel==2.8.0
