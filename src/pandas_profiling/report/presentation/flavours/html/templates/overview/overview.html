@@ -1,31 +1,31 @@
 <div id="overview-content" class="row variable spacing">
     <div class="row">
         <div class="col-sm-5">
-            <p class="h2">{{ gettext("Dataset info") }}</p>
+            <p class="h2">{% trans %}Dataset info{% endtrans %}</p>
             <table class="table table-condensed stats">
                 <tbody>
                 <tr>
-                    <th>{{ gettext("Number of variables") }}</th>
+                    <th>{% trans %}Number of variables{% endtrans %}</th>
                     <td>{{ values['n_var'] }} </td>
                 </tr>
                 <tr>
-                    <th>{{ gettext("Number of observations") }}</th>
+                    <th>{% trans %}Number of observations{% endtrans %}</th>
                     <td>{{ values['n'] }} </td>
                 </tr>
                 <tr>
-                    <th>{{ gettext("Missing cells") }}</th>
+                    <th>{% trans %}Missing cells{% endtrans %}</th>
                     <td>{{ values['n_cells_missing'] }}  ({{ values['p_cells_missing'] | fmt_percent}})</td>
                 </tr>
                  <tr>
-                    <th>{{ gettext("Duplicate rows") }}</th>
+                    <th>{% trans %}Duplicate rows{% endtrans %}</th>
                     <td>{{ values['n_duplicates'] }} ({{ values['p_duplicates'] | fmt_percent }})</td>
                 </tr>
                 <tr>
-                    <th>{{ gettext("Total size in memory") }}</th>
+                    <th>{% trans %}Total size in memory{% endtrans %}</th>
                     <td>{{ values['memory_size'] | fmt_bytesize }} </td>
                 </tr>
                 <tr>
-                    <th>{{ gettext("Average record size in memory") }}</th>
+                    <th>{% trans %}Average record size in memory{% endtrans %}</th>
                     <td>{{ values['record_size'] | fmt_bytesize }} </td>
                 </tr>
                 </tbody>
@@ -51,21 +51,21 @@
     <div class="col-sm-12 text-right">
         <a role="button" data-toggle="collapse" data-target="#reproduction"
            aria-expanded="false" aria-controls="collapseExample">
-            {{ gettext("Toggle Reproduction Information") }}
+            {% trans %}Toggle Reproduction Information{% endtrans %}
         </a>
     </div>
 
     <div id="reproduction" class="row collapse" aria-expanded="false">
         <div class="col-sm-12">
-            <p class="h2">{{ gettext("Reproduction info") }}</p>
+            <p class="h2">{% trans %}Reproduction info{% endtrans %}</p>
             <table class="table table-condensed stats">
                 <tbody>
                 <tr>
-                    <th>{{ gettext("Analysis started") }}</th>
+                    <th>{% trans %}Analysis started{% endtrans %}</th>
                     <td>{{ date_start }}</td>
                 </tr>
                 <tr>
-                    <th>{{ gettext("Analysis finished") }}</th>
+                    <th>{% trans %}Analysis finished{% endtrans %}</th>
                     <td>{{ date_end }}</td>
                 </tr>
                 <tr>
@@ -73,11 +73,11 @@
                     <td><a href="https://github.com/pandas-profiling/pandas-profiling">pandas-profiling v{{ package['pandas_profiling_version'] }}</a></td>
                 </tr>
                 <tr>
-                    <th>{{ gettext("Command line") }}</th>
+                    <th>{% trans %}Command line{% endtrans %}</th>
                     <td><code>pandas_profiling --config_file config.yaml [YOUR_FILE.csv]</code></td>
                 </tr>
                 <tr>
-                    <th>{{ gettext("Download Configuration") }}</th>
+                    <th>{% trans %}Download Configuration{% endtrans %}</th>
                     <td><a download="config.yaml" href="data:text/plain;charset=utf-8,{{ package['pandas_profiling_config'] | urlencode }}">config.yaml</a></td>
                 </tr>
                 </tbody>
