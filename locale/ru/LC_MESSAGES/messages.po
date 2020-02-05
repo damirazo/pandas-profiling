@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-04 16:15+0300\n"
+"POT-Creation-Date: 2020-02-05 10:06+0300\n"
 "PO-Revision-Date: 2020-02-04 16:18+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,7 +19,712 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: src/pandas_profiling/report/structure/variables/render_real.py:31
-msgid "Distinct count"
+#: src/pandas_profiling/model/correlations.py:169
+msgid "correlations"
+msgstr "корреляции"
+
+#: src/pandas_profiling/model/describe.py:220
+msgid "No common prefix"
+msgstr "Нет общего префикса"
+
+#: src/pandas_profiling/model/describe.py:478
+#: src/pandas_profiling/report/presentation/flavours/html/templates/frequency_table.html:8
+msgid "Count"
+msgstr "Количество"
+
+#: src/pandas_profiling/model/describe.py:479
+msgid "Matrix"
+msgstr "Матрица"
+
+#: src/pandas_profiling/model/describe.py:480
+msgid "Heatmap"
+msgstr "Тепловая карта"
+
+#: src/pandas_profiling/model/describe.py:481
+msgid "Dendrogram"
+msgstr "Дендрограмма"
+
+#: src/pandas_profiling/model/describe.py:498
+msgid "отсутствует"
 msgstr ""
+
+#: src/pandas_profiling/model/describe.py:617
+msgid "table"
+msgstr "таблица"
+
+#: src/pandas_profiling/model/describe.py:625
+msgid "warnings"
+msgstr "предупреждения"
+
+#: src/pandas_profiling/model/describe.py:637
+msgid "package"
+msgstr "пакет"
+
+#: src/pandas_profiling/model/messages.py:91
+msgid ""
+"<abbr title=\"This variable has a high correlation with {num} fields: "
+"{title}\">HIGH CORRELATION</abbr>"
+msgstr ""
+"<abbr title=\"Эта переменная имеет высокую корреляцию с {num} полей: "
+"{title}\">ВЫСОКАЯ КОРРЕЛЯЦИЯ</abbr>"
+
+#: src/pandas_profiling/report/presentation/frequency_table_utils.py:57
+msgid "Other values ({})"
+msgstr "Прочие значения ({})"
+
+#: src/pandas_profiling/report/presentation/frequency_table_utils.py:72
+msgid "(Missing)"
+msgstr "(Отсутствует)"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/frequency_table.html:7
+msgid "Value"
+msgstr "Значение"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/frequency_table.html:9
+msgid "Frequency (%)"
+msgstr "Частота (%)"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/preview.html:9
+msgid "Toggle details"
+msgstr "Переключить детализацию"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:4
+msgid "Dataset info"
+msgstr "Информация о наборе данных"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:8
+msgid "Number of variables"
+msgstr "Количество переменных"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:12
+msgid "Number of observations"
+msgstr "Количество наблюдений"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:16
+msgid "Missing cells"
+msgstr "Недостающие ячейки"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:20
+msgid "Duplicate rows"
+msgstr "Дублирующиеся строки"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:24
+msgid "Total size in memory"
+msgstr "Общий размер в памяти"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:28
+msgid "Average record size in memory"
+msgstr "Средний размер записи в памяти"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:54
+msgid "Toggle Reproduction Information"
+msgstr "Переключить информацию о воспроизведении"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:60
+msgid "Reproduction info"
+msgstr "Информация о воспроизведении"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:64
+msgid "Analysis started"
+msgstr "Анализ начался"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:68
+msgid "Analysis finished"
+msgstr "Анализ завершен"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:72
+msgid "Version"
+msgstr "Версия"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:76
+msgid "Command line"
+msgstr "Командная строка"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:80
+msgid "Download Configuration"
+msgstr "Загрузка Конфигурации"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/overview.html:98
+msgid "Warnings"
+msgstr "Предупреждения"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_const.html:2
+msgid "has constant value"
+msgstr "имеет постоянное значение"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_const.html:5
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_unsupported.html:5
+msgid "Rejected"
+msgstr "Отклонено"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_duplicates.html:5
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_high_cardinality.html:5
+msgid "Warning"
+msgstr "Предупреждение"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_high_correlation.html:4
+msgid "is highly correlated with"
+msgstr "имеет высокую корреляцию с"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_high_correlation.html:7
+msgid "High Correlation"
+msgstr "Высокая корреляция"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_infinite.html:2
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_missing.html:2
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_zeros.html:2
+msgid "has"
+msgstr "имеет"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_infinite.html:2
+msgid "infinite values"
+msgstr "бесконечные значения"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_infinite.html:5
+#: src/pandas_profiling/report/structure/variables/render_real.py:55
+msgid "Infinite"
+msgstr "Бесконечность"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_missing.html:2
+msgid "missing values"
+msgstr "отсутствующие значения"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_missing.html:5
+#: src/pandas_profiling/report/structure/variables/render_boolean.py:49
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:54
+#: src/pandas_profiling/report/structure/variables/render_complex.py:30
+#: src/pandas_profiling/report/structure/variables/render_count.py:32
+#: src/pandas_profiling/report/structure/variables/render_date.py:26
+#: src/pandas_profiling/report/structure/variables/render_generic.py:19
+#: src/pandas_profiling/report/structure/variables/render_real.py:43
+#: src/pandas_profiling/report/structure/variables/render_url.py:83
+msgid "Missing"
+msgstr "Отсутствует"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_skewed.html:2
+msgid "is highly skewed"
+msgstr "сильно перекошено"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_skewed.html:5
+msgid "Skewed"
+msgstr "Перекос"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_truncated.html:5
+msgid "Truncated"
+msgstr "Усечено"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_type_date.html:2
+msgid "only contains datetime values, but is categorical"
+msgstr "содержит только значения даты и времени, но это качественное значение"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_type_date.html:2
+msgid "Consider applying"
+msgstr "Рассмотрите возможность"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_type_date.html:5
+msgid "Type"
+msgstr "Тип"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_unsupported.html:2
+msgid "is an unsupported type, check if it needs cleaning or further analysis"
+msgstr "это неподдерживаемый тип, проверьте не нуждается ли он в очистке или дополнительном анализе"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_zeros.html:2
+msgid "zeros"
+msgstr "нули"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_zeros.html:5
+#: src/pandas_profiling/report/structure/variables/render_complex.py:49
+#: src/pandas_profiling/report/structure/variables/render_count.py:48
+#: src/pandas_profiling/report/structure/variables/render_real.py:75
+msgid "Zeros"
+msgstr "Нули"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/wrapper/footer.html:4
+msgid "Report generated with"
+msgstr "Отчет создан с помощью"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/wrapper/navigation.html:7
+msgid "Toggle navigation"
+msgstr "Переключить навигацию"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/wrapper/navigation.html:23
+#: src/pandas_profiling/report/structure/report.py:267
+msgid "Overview"
+msgstr "Обзор"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/wrapper/navigation.html:24
+#: src/pandas_profiling/report/structure/report.py:273
+msgid "Variables"
+msgstr "Переменные"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/wrapper/navigation.html:26
+#: src/pandas_profiling/report/structure/report.py:280
+msgid "Correlations"
+msgstr "Корреляции"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/wrapper/navigation.html:29
+#: src/pandas_profiling/report/structure/report.py:248
+msgid "Interactions"
+msgstr "Взаимодействия"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/wrapper/navigation.html:32
+#: src/pandas_profiling/report/structure/report.py:286
+msgid "Missing values"
+msgstr "Отсутствующие значения"
+
+#: src/pandas_profiling/report/presentation/flavours/html/templates/wrapper/navigation.html:35
+#: src/pandas_profiling/report/structure/report.py:292
+msgid "Sample"
+msgstr "Выборка"
+
+#: src/pandas_profiling/report/presentation/flavours/qt/dataset.py:9
+#: src/pandas_profiling/report/presentation/flavours/qt/overview.py:9
+msgid "PyQt5 button"
+msgstr "Кнопка PyQt5"
+
+#: src/pandas_profiling/report/presentation/flavours/qt/frequency_table.py:9
+#: src/pandas_profiling/report/structure/variables/render_boolean.py:74
+msgid "Frequency Table"
+msgstr "Частотная таблица"
+
+#: src/pandas_profiling/report/presentation/flavours/qt/frequency_table_small.py:11
+msgid "Small Frequency Table"
+msgstr "Малая частотная таблица"
+
+#: src/pandas_profiling/report/structure/report.py:74
+msgid "Pearson's r"
+msgstr "r Пирсона"
+
+#: src/pandas_profiling/report/structure/report.py:75
+msgid "Spearman's ρ"
+msgstr "ρ Спирмена"
+
+#: src/pandas_profiling/report/structure/report.py:76
+msgid "Kendall's τ"
+msgstr "τ Кендалла"
+
+#: src/pandas_profiling/report/structure/report.py:77
+msgid "Phik (φk)"
+msgstr "Фик (φk)"
+
+#: src/pandas_profiling/report/structure/report.py:78
+msgid "Cramér's V (φc)"
+msgstr "V (φc) Крамера"
+
+#: src/pandas_profiling/report/structure/report.py:79
+msgid "Recoded"
+msgstr "Перекодированное"
+
+#: src/pandas_profiling/report/structure/report.py:187
+msgid "First rows"
+msgstr "Первые строки"
+
+#: src/pandas_profiling/report/structure/report.py:187
+msgid "Last rows"
+msgstr "Последние строки"
+
+#: src/pandas_profiling/report/structure/report.py:296
+msgid "Report"
+msgstr "Отчет"
+
+#: src/pandas_profiling/report/structure/variables/render_boolean.py:30
+msgid "Boolean"
+msgstr "Булево"
+
+#: src/pandas_profiling/report/structure/variables/render_boolean.py:37
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:42
+#: src/pandas_profiling/report/structure/variables/render_complex.py:28
+#: src/pandas_profiling/report/structure/variables/render_count.py:30
+#: src/pandas_profiling/report/structure/variables/render_date.py:24
+#: src/pandas_profiling/report/structure/variables/render_real.py:31
+#: src/pandas_profiling/report/structure/variables/render_url.py:81
+msgid "Distinct count"
+msgstr "Количество уникальных значений"
+
+#: src/pandas_profiling/report/structure/variables/render_boolean.py:43
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:48
+#: src/pandas_profiling/report/structure/variables/render_complex.py:29
+#: src/pandas_profiling/report/structure/variables/render_count.py:31
+#: src/pandas_profiling/report/structure/variables/render_date.py:25
+#: src/pandas_profiling/report/structure/variables/render_real.py:37
+#: src/pandas_profiling/report/structure/variables/render_url.py:82
+msgid "Unique (%)"
+msgstr "Уникальность (%)"
+
+#: src/pandas_profiling/report/structure/variables/render_boolean.py:55
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:60
+#: src/pandas_profiling/report/structure/variables/render_complex.py:32
+#: src/pandas_profiling/report/structure/variables/render_count.py:34
+#: src/pandas_profiling/report/structure/variables/render_date.py:28
+#: src/pandas_profiling/report/structure/variables/render_generic.py:25
+#: src/pandas_profiling/report/structure/variables/render_real.py:49
+#: src/pandas_profiling/report/structure/variables/render_url.py:85
+msgid "Missing (%)"
+msgstr "Отсутствует (%)"
+
+#: src/pandas_profiling/report/structure/variables/render_boolean.py:61
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:66
+#: src/pandas_profiling/report/structure/variables/render_complex.py:37
+#: src/pandas_profiling/report/structure/variables/render_count.py:51
+#: src/pandas_profiling/report/structure/variables/render_date.py:33
+#: src/pandas_profiling/report/structure/variables/render_generic.py:31
+#: src/pandas_profiling/report/structure/variables/render_real.py:87
+#: src/pandas_profiling/report/structure/variables/render_url.py:90
+msgid "Memory size"
+msgstr "Размер памяти"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:36
+msgid "Categorical"
+msgstr "Качественные показатели"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:82
+msgid "Common Values"
+msgstr "Общие значения"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:93
+msgid "Max length"
+msgstr "Максимальная длина"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:98
+msgid "Mean length"
+msgstr "Средняя длина"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:103
+msgid "Min length"
+msgstr "Минимальная длина"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:108
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:118
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:125
+msgid "Length"
+msgstr "Длина"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:117
+#: src/pandas_profiling/report/structure/variables/render_complex.py:67
+#: src/pandas_profiling/report/structure/variables/render_path_image.py:49
+msgid "Scatter"
+msgstr "Рассеивание"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:140
+msgid "Categories"
+msgstr "Категории"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:151
+msgid "Scripts"
+msgstr "Сценарии"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:162
+msgid "Blocks"
+msgstr "Блоки"
+
+#: src/pandas_profiling/report/structure/variables/render_categorical.py:169
+msgid "Characters"
+msgstr "Символы"
+
+#: src/pandas_profiling/report/structure/variables/render_complex.py:22
+msgid "Complex number (&Copf;)"
+msgstr "Комплексное число (&Copf;)"
+
+#: src/pandas_profiling/report/structure/variables/render_complex.py:46
+#: src/pandas_profiling/report/structure/variables/render_count.py:45
+#: src/pandas_profiling/report/structure/variables/render_count.py:110
+#: src/pandas_profiling/report/structure/variables/render_real.py:71
+msgid "Mean"
+msgstr "Среднее"
+
+#: src/pandas_profiling/report/structure/variables/render_complex.py:47
+#: src/pandas_profiling/report/structure/variables/render_count.py:46
+#: src/pandas_profiling/report/structure/variables/render_count.py:72
+#: src/pandas_profiling/report/structure/variables/render_date.py:42
+#: src/pandas_profiling/report/structure/variables/render_real.py:72
+#: src/pandas_profiling/report/structure/variables/render_real.py:109
+msgid "Minimum"
+msgstr "Минимум"
+
+#: src/pandas_profiling/report/structure/variables/render_complex.py:48
+#: src/pandas_profiling/report/structure/variables/render_count.py:47
+#: src/pandas_profiling/report/structure/variables/render_count.py:86
+#: src/pandas_profiling/report/structure/variables/render_date.py:43
+#: src/pandas_profiling/report/structure/variables/render_real.py:73
+#: src/pandas_profiling/report/structure/variables/render_real.py:115
+msgid "Maximum"
+msgstr "Максимум"
+
+#: src/pandas_profiling/report/structure/variables/render_complex.py:50
+#: src/pandas_profiling/report/structure/variables/render_count.py:49
+#: src/pandas_profiling/report/structure/variables/render_real.py:81
+msgid "Zeros (%)"
+msgstr "Нули (%)"
+
+#: src/pandas_profiling/report/structure/variables/render_complex.py:65
+msgid "Scatterplot"
+msgstr "Разброс точек"
+
+#: src/pandas_profiling/report/structure/variables/render_complex.py:66
+msgid "Scatterplot in the complex plane"
+msgstr "Разброс точек в комплексной плоскости"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:24
+msgid "Real number (&Ropf; / &Ropf;<sub>&ge;0</sub>)"
+msgstr "Вещественное число (&Ropf; / &Ropf;<sub>&ge;0</sub>)"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:62
+#: src/pandas_profiling/report/structure/variables/render_date.py:54
+#: src/pandas_profiling/report/structure/variables/render_real.py:100
+msgid "Mini histogram"
+msgstr "Мини гистограмма"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:70
+#: src/pandas_profiling/report/structure/variables/render_real.py:123
+msgid "Quantile statistics"
+msgstr "Статистика по квантилям"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:74
+#: src/pandas_profiling/report/structure/variables/render_real.py:110
+msgid "5-th percentile"
+msgstr "5-ый персентиль"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:78
+#: src/pandas_profiling/report/structure/variables/render_real.py:111
+msgid "Q1"
+msgstr "Q1"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:79
+#: src/pandas_profiling/report/structure/variables/render_real.py:112
+msgid "median"
+msgstr "медиана"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:80
+#: src/pandas_profiling/report/structure/variables/render_real.py:113
+msgid "Q3"
+msgstr "Q3"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:82
+#: src/pandas_profiling/report/structure/variables/render_real.py:114
+msgid "95-th percentile"
+msgstr "95-ый персентиль"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:87
+#: src/pandas_profiling/report/structure/variables/render_real.py:116
+msgid "Range"
+msgstr "Диапазон"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:89
+msgid "Interquartile range"
+msgstr "Межквартильный размах"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:97
+#: src/pandas_profiling/report/structure/variables/render_real.py:154
+msgid "Descriptive statistics"
+msgstr "Описательная статистика"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:100
+#: src/pandas_profiling/report/structure/variables/render_real.py:129
+msgid "Standard deviation"
+msgstr "Стандартное отклонение"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:105
+msgid "Coefficient of variation"
+msgstr "Коэффициент вариации"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:109
+#: src/pandas_profiling/report/structure/variables/render_real.py:138
+msgid "Kurtosis"
+msgstr "Эксцесс"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:111
+msgid "MAD"
+msgstr "MAD"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:112
+#: src/pandas_profiling/report/structure/variables/render_real.py:146
+msgid "Skewness"
+msgstr "Перекос"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:113
+#: src/pandas_profiling/report/structure/variables/render_real.py:151
+msgid "Sum"
+msgstr "Сумма"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:114
+#: src/pandas_profiling/report/structure/variables/render_real.py:152
+msgid "Variance"
+msgstr "Расхождение"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:133
+#: src/pandas_profiling/report/structure/variables/render_count.py:137
+#: src/pandas_profiling/report/structure/variables/render_count.py:174
+#: src/pandas_profiling/report/structure/variables/render_date.py:69
+#: src/pandas_profiling/report/structure/variables/render_date.py:70
+#: src/pandas_profiling/report/structure/variables/render_date.py:71
+#: src/pandas_profiling/report/structure/variables/render_real.py:168
+#: src/pandas_profiling/report/structure/variables/render_real.py:172
+#: src/pandas_profiling/report/structure/variables/render_real.py:209
+msgid "Histogram"
+msgstr "Гистограмма"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:134
+#: src/pandas_profiling/report/structure/variables/render_real.py:169
+msgid "<strong>Histogram with fixed size bins</strong> (bins={})"
+msgstr "<strong>Гистограмма с фиксированными ячейками</strong> (bins={})"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:144
+#: src/pandas_profiling/report/structure/variables/render_real.py:179
+msgid "Common values"
+msgstr "Общие значения"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:152
+#: src/pandas_profiling/report/structure/variables/render_real.py:187
+msgid "Minimum 5 values"
+msgstr "5 минимальных значений"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:157
+#: src/pandas_profiling/report/structure/variables/render_real.py:192
+msgid "Maximum 5 values"
+msgstr "5 максимальных значений"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:162
+#: src/pandas_profiling/report/structure/variables/render_real.py:197
+msgid "Extreme values"
+msgstr "Экстремальные значения"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:175
+#: src/pandas_profiling/report/structure/variables/render_real.py:210
+msgid ""
+"<strong>Histogram with variable size bins</strong> (bins={}, <a "
+"href=\"https://ui.adsabs.harvard.edu/abs/2013ApJ...764..167S/abstract\" "
+"target=\"_blank\">\"bayesian blocks\"</a> binning strategy used)"
+msgstr ""
+"<strong>Гистограмма с фиксированными ячейками</strong> (bins={}, <a "
+"href=\"https://ui.adsabs.harvard.edu/abs/2013ApJ...764..167S/abstract\" "
+"target=\"_blank\">\"байесовские блоки\"</a> используется стратегия биннинга)"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:181
+#: src/pandas_profiling/report/structure/variables/render_real.py:216
+msgid "Dynamic Histogram"
+msgstr "Динамическая гистограмма"
+
+#: src/pandas_profiling/report/structure/variables/render_count.py:191
+#: src/pandas_profiling/report/structure/variables/render_real.py:228
+msgid "Histogram(s)"
+msgstr "Гистограмма(ы)"
+
+#: src/pandas_profiling/report/structure/variables/render_generic.py:12
+msgid "Unsupported"
+msgstr "Не поддерживается"
+
+#: src/pandas_profiling/report/structure/variables/render_path.py:38
+#: src/pandas_profiling/report/structure/variables/render_url.py:37
+msgid "Full"
+msgstr "Заполнено"
+
+#: src/pandas_profiling/report/structure/variables/render_path.py:44
+msgid "Stem"
+msgstr "Основа"
+
+#: src/pandas_profiling/report/structure/variables/render_path.py:50
+msgid "Name"
+msgstr "Имя"
+
+#: src/pandas_profiling/report/structure/variables/render_path.py:56
+msgid "Suffix"
+msgstr "Суффикс"
+
+#: src/pandas_profiling/report/structure/variables/render_path.py:62
+msgid "Parent"
+msgstr "Родитель"
+
+#: src/pandas_profiling/report/structure/variables/render_path.py:76
+#: src/pandas_profiling/report/structure/variables/render_path.py:81
+msgid "File size"
+msgstr "Размер файла"
+
+#: src/pandas_profiling/report/structure/variables/render_path.py:77
+msgid ""
+"<strong>Histogram with fixed size bins of file sizes (in bytes)</strong> "
+"(bins={})"
+msgstr ""
+"<strong>Гистограмма с фиксированными размерами бинов в размерах файлов (в байтах)</strong> "
+"(bins={})"
+
+#: src/pandas_profiling/report/structure/variables/render_path_image.py:16
+msgid "Image Path"
+msgstr "Путь до изображения"
+
+#: src/pandas_profiling/report/structure/variables/render_path_image.py:20
+#: src/pandas_profiling/report/structure/variables/render_path_image.py:56
+msgid "Image shape"
+msgstr "Форма изображения"
+
+#: src/pandas_profiling/report/structure/variables/render_path_image.py:20
+#: src/pandas_profiling/report/structure/variables/render_path_image.py:32
+msgid "Exif keys"
+msgstr "Ключи из EXIF"
+
+#: src/pandas_profiling/report/structure/variables/render_path_image.py:40
+#: src/pandas_profiling/visualisation/plot.py:47
+msgid "Frequency"
+msgstr "Частота"
+
+#: src/pandas_profiling/report/structure/variables/render_path_image.py:47
+#: src/pandas_profiling/report/structure/variables/render_path_image.py:48
+msgid "Scatterplot of image sizes"
+msgstr "Разброс размеров изображений"
+
+#: src/pandas_profiling/report/structure/variables/render_real.py:21
+msgid "Real number (&Ropf;<sub>&ge;0</sub>)"
+msgstr "Вещественное число (&Ropf;<sub>&ge;0</sub>)"
+
+#: src/pandas_profiling/report/structure/variables/render_real.py:23
+msgid "Real number (&Ropf;)"
+msgstr "Вещественное число (&Ropf;)"
+
+#: src/pandas_profiling/report/structure/variables/render_real.py:61
+msgid "Infinite (%)"
+msgstr "Бесконечные значения (%)"
+
+#: src/pandas_profiling/report/structure/variables/render_real.py:118
+msgid "Interquartile range (IQR)"
+msgstr "Межквартильные диапазоны (IQR)"
+
+#: src/pandas_profiling/report/structure/variables/render_real.py:134
+msgid "Coefficient of variation (CV)"
+msgstr "Коэффициент отклонения (CV)"
+
+#: src/pandas_profiling/report/structure/variables/render_real.py:141
+msgid "Median Absolute Deviation (MAD)"
+msgstr "Абсолютное отклонение (MAD)"
+
+#: src/pandas_profiling/report/structure/variables/render_real.py:160
+msgid "Statistics"
+msgstr "Статистика"
+
+#: src/pandas_profiling/report/structure/variables/render_url.py:42
+msgid "Scheme"
+msgstr "Схема"
+
+#: src/pandas_profiling/report/structure/variables/render_url.py:47
+msgid "Netloc"
+msgstr "Сетевой адрес"
+
+#: src/pandas_profiling/report/structure/variables/render_url.py:52
+msgid "Path"
+msgstr "Путь"
+
+#: src/pandas_profiling/report/structure/variables/render_url.py:57
+msgid "Query"
+msgstr "Запрос"
+
+#: src/pandas_profiling/report/structure/variables/render_url.py:62
+msgid "Fragment"
+msgstr "Фрагмент"
+
+#: src/pandas_profiling/visualisation/plot.py:141
+msgid "Imaginary"
+msgstr "Мнимое"
+
+#: src/pandas_profiling/visualisation/plot.py:142
+msgid "Real"
+msgstr "Вещественное"
 
