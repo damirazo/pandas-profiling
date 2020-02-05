@@ -20,11 +20,13 @@ class Preview(ItemRenderer):
     def __str__(self):
         top = self.content["top"].replace("\n", "\n\t")
         bottom = self.content["bottom"].replace("\n", "\n\t")
-        text = (
-            f'{_("Variabele")}\n'
-            f'- {_("top")}: {top}'
-            f'- {_("bottom")}: {bottom}'
-        )
+
+        text = ''.join([
+            _('Variabele'),
+            '\n',
+            _('top'), f': {top}',
+            _('bottom'), f': {bottom}',
+        ])
 
         return text
 

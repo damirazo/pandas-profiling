@@ -32,7 +32,7 @@
             </table>
         </div>
         <div class="col-sm-6 col-sm-offset-1">
-            <p class="h2">Variables types</p>
+            <p class="h2">{% trans %}Variables types{% endtrans %}</p>
             <table class="table table-condensed stats">
                 {# TODO: count, n_unique, n_rejected etc. #}
                 <tbody>
@@ -89,7 +89,7 @@
     <div class="col-sm-12 text-right">
         <a role="button" data-toggle="collapse" data-target="#warnings"
            aria-expanded="{% if collapse_warnings %}false{% else %}true{% endif %}" aria-controls="collapseExample" class="">
-            Toggle Warnings
+            {% trans %}Toggle Warnings{% endtrans %}
         </a>
     </div>
 

@@ -10,7 +10,7 @@ class Sequence(Renderable):
         self.sequence_type = sequence_type
 
     def __str__(self):
-        text = f"{_('Sequence')}\n"
+        text = _("Sequence") + "\n"
         if "items" in self.content:
             for id, item in enumerate(self.content["items"]):
                 text += "- {}: {}\n".format(id, str(item).replace("\n", "\n\t"))

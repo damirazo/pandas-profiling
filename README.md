@@ -119,6 +119,21 @@ profile = ProfileReport(df, title='Pandas Profiling Report', html={'style':{'ful
 
 #### Localization settings
 
+Extract new strings to *.pot file
+```shell script
+pybabel extract . -o locale/base.pot -F babel.ini
+```
+
+Updating localization in all *.po files by *.pot file
+```shell script
+pybabel update -i locale/base.pot -d locale
+```
+
+Compiling all *.po files to *.mo files
+```shell script
+pybabel compile -d locale
+```
+
 #### Jupyter Notebook
 
 We recommend generating reports interactively by using the Jupyter notebook. 

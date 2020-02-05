@@ -19,7 +19,7 @@ def render_complex(summary):
     info = Overview(
         summary["varid"],
         summary["varname"],
-        _("Complex number (&Copf;)"),
+        _("Complex number") + " (&Copf;)",
         summary["warnings"],
     )
 

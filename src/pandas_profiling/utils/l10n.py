@@ -1,8 +1,10 @@
+import warnings
 from gettext import translation
 from typing import Text, Callable, Optional
 
 # Код языка локализации по умолчанию
-DEFAULT_LANG_CODE = 'en-US'
+DEFAULT_LANG_CODE = 'en'
+LC_MESSAGES = 'messages'
 
 
 def auto_activator(method: Callable):
@@ -30,14 +32,21 @@ class LocalizationRegistry:
     _activated = False
 
     @classmethod
-    def activate(cls, code: Optional[Text]):
+    def activate(
+            cls,
+            code: Optional[Text] = None,
+            locale_dir: Optional[Text] = None):
         """
         Инициализация реестра указанным кодом локализации
 
         :param code: Код локализации
+        :param locale_dir: Путь до директории с файлами локализации
         """
         cls._code = code or DEFAULT_LANG_CODE
-        cls._trans = translation(code)
+        cls._trans = translation(
+            domain=LC_MESSAGES,
+            localedir=locale_dir,
+            languages=(code,))
         cls._activated = True
 
     @classmethod

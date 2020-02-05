@@ -7,6 +7,7 @@ import pandas as pd
 
 from pandas_profiling.config import config
 from pandas_profiling.utils.data_types import str_is_path
+from pandas_profiling.utils.l10n import gettext as _
 
 
 @unique

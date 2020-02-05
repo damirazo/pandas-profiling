@@ -431,9 +431,14 @@ def describe_table(df: pd.DataFrame, variable_stats: pd.DataFrame) -> dict:
     table_stats.update({k.value: 0 for k in Variable})
     table_stats.update(
         {
-            "types": dict(
-                variable_stats.loc["type"].apply(lambda x: x.value).value_counts()
-            )
+            "types": {
+                _(str(k)): v
+                for k, v in dict(
+                    variable_stats.loc["type"].apply(
+                        lambda x: x.value
+                    ).value_counts()
+                ).items()
+            }
         }
     )
 
@@ -491,7 +496,7 @@ def get_missing_diagrams(df: pd.DataFrame, table_stats: dict) -> dict:
 
     if len(missing_map) > 0:
         with tqdm(
-            total=len(missing_map), desc="missing", disable=disable_progress_bar
+            total=len(missing_map), desc=_("missing"), disable=disable_progress_bar
         ) as pbar:
             for name, settings in missing_map.items():
                 pbar.set_description_str("{missing} [{name}]".format(
@@ -523,7 +528,7 @@ def get_scatter_matrix(df, variables):
         ]
         with tqdm(
             total=len(continuous_variables) ** 2,
-            desc="interactions [continuous]",
+            desc=_("interactions [continuous]"),
             disable=disable_progress_bar,
         ) as pbar:
             scatter_matrix = {
@@ -582,7 +587,7 @@ def describe(df: pd.DataFrame) -> dict:
 
     args = [(column, series) for column, series in df.iteritems()]
     series_description = {}
-    with tqdm(total=len(args), desc="variables", disable=disable_progress_bar) as pbar:
+    with tqdm(total=len(args), desc=_("variables"), disable=disable_progress_bar) as pbar:
         if pool_size == 1:
             for arg in args:
                 column, description = multiprocess_1d(arg)
@@ -623,14 +628,14 @@ def describe(df: pd.DataFrame) -> dict:
 
     # Messages
     with tqdm(total=3, desc=_("warnings"), disable=disable_progress_bar) as pbar:
-        pbar.set_description_str(f"{_('warnings')} [table]")
+        pbar.set_description_str(_("warnings [table]"))
         messages = check_table_messages(table_stats)
         pbar.update(1)
-        pbar.set_description_str(f"{_('warnings')} [variables]")
+        pbar.set_description_str(_("warnings [variables]"))
         for col, description in series_description.items():
             messages += check_variable_messages(col, description)
         pbar.update(1)
-        pbar.set_description_str(f"{_('warnings')} [correlations]")
+        pbar.set_description_str(_("warnings [correlations]"))
         messages += check_correlation_messages(correlations)
         pbar.update(1)
 

@@ -21,7 +21,7 @@ def render_count(summary):
     info = Overview(
         summary["varid"],
         summary["varname"],
-        _("Real number (&Ropf; / &Ropf;<sub>&ge;0</sub>)"),
+        _("Real number") + " (&Ropf; / &Ropf;<sub>&ge;0</sub>)",
         summary["warnings"],
     )
 
@@ -131,8 +131,12 @@ def render_count(summary):
             histogram(summary["histogram_data"], summary, summary["histogram_bins"]),
             image_format=image_format,
             alt=_("Histogram"),
-            caption=_(
-                "<strong>Histogram with fixed size bins</strong> (bins={})"
+            caption=(
+                "<strong>"
+                + _("Histogram with fixed size bins")
+                + "</strong> ("
+                + _("bins")
+                + "={})"
             ).format(summary["histogram_bins"]),
             name=_("Histogram"),
             anchor_id="histogram",

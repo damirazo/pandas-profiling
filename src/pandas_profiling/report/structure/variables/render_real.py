@@ -17,10 +17,11 @@ def render_real(summary):
     template_variables = render_common(summary)
     image_format = config["plot"]["image_format"].get(str)
 
+    name_prefix = _('Real number')
     if summary["min"] >= 0:
-        name = _("Real number (&Ropf;<sub>&ge;0</sub>)")
+        name = f"{name_prefix} (&Ropf;<sub>&ge;0</sub>)"
     else:
-        name = _("Real number (&Ropf;)")
+        name = f"{name_prefix} (&Ropf;)"
 
     # Top
     info = Overview(summary["varid"], summary["varname"], name, summary["warnings"])
@@ -136,7 +137,7 @@ def render_real(summary):
                 "fmt": "fmt_numeric",
             },
             {"name": _("Kurtosis"), "value": summary["kurtosis"], "fmt": "fmt_numeric"},
-            {"name": "Mean", "value": summary["mean"], "fmt": "fmt_numeric"},
+            {"name": _("Mean"), "value": summary["mean"], "fmt": "fmt_numeric"},
             {
                 "name": _("Median Absolute Deviation (MAD)"),
                 "value": summary["mad"],
@@ -166,8 +167,12 @@ def render_real(summary):
             histogram(summary["histogram_data"], summary, histogram_bins),
             image_format=image_format,
             alt=_("Histogram"),
-            caption=_(
-                "<strong>Histogram with fixed size bins</strong> (bins={})"
+            caption=(
+                "<strong>"
+                + _("Histogram with fixed size bins")
+                + "</strong> ("
+                + _("bins")
+                + "={})"
             ).format(histogram_bins),
             name=_("Histogram"),
             anchor_id="{varid}histogram".format(varid=summary["varid"]),

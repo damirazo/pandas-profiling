@@ -171,7 +171,10 @@ def calculate_correlations(df: pd.DataFrame, variables: dict) -> dict:
         ) as pbar:
             for correlation_name in correlation_names:
                 pbar.set_description_str(
-                    f"{_('correlations')} [{correlation_name}]"
+                    ' '.join([
+                        _('correlations'),
+                        f'[{correlation_name}]'
+                    ])
                 )
 
                 if correlation_name in ["pearson", "spearman", "kendall"]:
