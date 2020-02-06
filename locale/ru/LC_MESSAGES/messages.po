@@ -105,7 +105,7 @@ msgstr "ПЕРЕКОДИРОВАННОЕ ЗНАЧЕНИЕ"
 
 #: src/pandas_profiling/model/messages.py:81
 msgid "HIGH CARDINALITY"
-msgstr "БОЛЬШОЙ РАЗБРОС"
+msgstr "ВЫСОКАЯ МОЩНОСТЬ"
 
 #: src/pandas_profiling/model/messages.py:82
 #: src/pandas_profiling/model/messages.py:99
@@ -313,7 +313,7 @@ msgstr "Предупреждение"
 
 #: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_high_cardinality.html:2
 msgid "has a high cardinality"
-msgstr "имеет сильный разброс"
+msgstr "имеет высокую мощность"
 
 #: src/pandas_profiling/report/presentation/flavours/html/templates/overview/warnings/warning_high_cardinality.html:2
 msgid "distinct values"

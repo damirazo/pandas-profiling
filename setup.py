@@ -1,6 +1,8 @@
 from pathlib import Path
 
 from setuptools import setup, find_packages
+from setuptools.command.install import install
+
 
 # Read the contents of README file
 source_root = Path(".")
@@ -20,6 +22,24 @@ with (source_root / "src" / "pandas_profiling" / "version.py").open(
         ]
     )
 
+
+class InstallWithCompile(install):
+    """
+    Установка пакета с предварительной компиляцией файлов локализации
+    """
+
+    def run(self):
+        from babel.messages.frontend import compile_catalog
+
+        compiler = compile_catalog(self.distribution)
+        option_dict = self.distribution.get_option_dict('compile_catalog')
+        compiler.domain = [option_dict['domain'][1]]
+        compiler.directory = option_dict['directory'][1]
+        compiler.run()
+
+        super().run()
+
+
 setup(
     name="pandas-profiling",
     version=version,
@@ -27,6 +47,7 @@ setup(
     author_email="pandasprofiling@gmail.com",
     packages=find_packages("src"),
     package_dir={"": "src"},
+    package_data={'': ['locale/*/*/*.mo', 'locale/*/*/*.po']},
     url="https://github.com/pandas-profiling/pandas-profiling",
     license="MIT",
     description="Generate profile report for pandas DataFrame",
@@ -45,11 +66,18 @@ setup(
         "tqdm==4.42.1",
     ],
     extras_require={
-        "notebook": ["jupyter-client==5.3.4", "jupyter-core==4.6.1", "ipywidgets"],
+        "notebook": [
+            "jupyter-client==5.3.4",
+            "jupyter-core==4.6.1",
+            "ipywidgets",
+        ],
         "app": ["pyqt5==5.14.1"],
         "html": ["htmlmin==0.1.12"],
         "kaggle": ["kaggle"],
     },
+    setup_requires=[
+        "Babel==2.8.0",
+    ],
     include_package_data=True,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -74,7 +102,16 @@ setup(
     entry_points={
         "console_scripts": [
             "pandas_profiling = pandas_profiling.controller.console:main"
-        ]
+        ],
+        "distutils.commands": [
+            "compile_catalog = babel.messages.frontend:compile_catalog",
+            "extract_messages = babel.messages.frontend:extract_messages",
+            "init_catalog = babel.messages.frontend:init_catalog",
+            "update_catalog = babel.messages.frontend:update_catalog",
+        ],
     },
     options={"bdist_wheel": {"universal": True}},
+    cmdclass={
+        'install': InstallWithCompile,
+    },
 )

@@ -1,9 +1,11 @@
+import os
+
 import pandas as pd
 import numpy as np
 import datetime
 import pytest
 
-from pandas_profiling import config
+from pandas_profiling import config, get_config_default, PROJECT_BASE_DIR
 from pandas_profiling.model.base import Variable
 
 check_is_NaN = "pandas_profiling.check_is_NaN"
@@ -622,6 +624,16 @@ def expected_results():
 
 
 def test_describe_df(describe_data, expected_results):
+    from pandas_profiling.utils.l10n import gettext as _, LocalizationRegistry
+
+    LocalizationRegistry.activate(
+        code=str(config['l10n']),
+        locale_dir=os.path.join(
+            PROJECT_BASE_DIR,
+            'locale',
+        ),
+    )
+
     config["vars"]["num"]["low_categorical_threshold"].set(0)
     describe_data_frame = pd.DataFrame(describe_data)
     describe_data_frame["somedate"] = pd.to_datetime(describe_data_frame["somedate"])
@@ -638,9 +650,16 @@ def test_describe_df(describe_data, expected_results):
         "package",
     } == set(results.keys()), "Not in results"
 
-    assert {"BOOL": 5, "CAT": 3, "UNSUPPORTED": 4, "NUM": 2, "DATE": 1} == results[
-        "table"
-    ]["types"], "Variable analysis failed"
+    example_types = {
+        _("BOOL"): 5,
+        _("CAT"): 3,
+        _("UNSUPPORTED"): 4,
+        _("NUM"): 2,
+        _("DATE"): 1,
+    }
+
+    assert example_types == results["table"]["types"], (
+        "Variable analysis failed")
 
     # Loop over variables
     for col in describe_data.keys():
