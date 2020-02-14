@@ -1,6 +1,6 @@
 <td>
-    <a class="anchor" href="#pp_var_{{ message.anchor_id }}"><code>{{ message.column_name }}</code></a> has {{ message.values['n_zeros'] }} ({{ message.values['p_zeros'] | fmt_percent }}) zeros
+    <a class="anchor" href="#pp_var_{{ message.anchor_id }}"><code>{{ message.column_name }}</code></a> {% trans %}has zeros:{% endtrans %} {{ message.values['n_zeros'] }} ({{ message.values['p_zeros'] | fmt_percent }})
 </td>
 <td>
-    <span class="label label-info">Zeros</span>
+    <span class="label label-info">{% trans %}Zeros{% endtrans %}</span>
 </td>

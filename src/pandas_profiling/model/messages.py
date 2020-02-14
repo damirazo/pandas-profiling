@@ -12,6 +12,7 @@ import numpy as np
 from pandas_profiling.model.correlations import perform_check_correlation
 from pandas_profiling.config import config
 from pandas_profiling.model.base import Variable
+from pandas_profiling.utils.l10n import gettext as _
 
 
 @unique
@@ -64,6 +65,40 @@ class MessageType(Enum):
     """The variable is uniformly distributed"""
 
 
+class _MessageType:
+    """
+    Хак для подхвата динамических строк локализаций
+
+    Реализовано по причине того, что наименование некоторых параметров
+    подтягивается в шаблон на основе наименований их типов
+    """
+
+    def __init__(self):
+        CONSTANT = _('CONSTANT')
+        ZEROS = _('ZEROS')
+        HIGH_CORRELATION = _('HIGH CORRELATION')
+        RECODED = _('RECODED')
+        HIGH_CARDINALITY = _('HIGH CARDINALITY')
+        UNSUPPORTED = _('UNSUPPORTED')
+        DUPLICATES = _('DUPLICATES')
+        SKEWED = _('SKEWED')
+        MISSING = _('MISSING')
+        INFINITE = _('INFINITE')
+        TYPE_DATE = _('TYPE DATE')
+        UNIQUE = _('UNIQUE')
+        CONSTANT_LENGTH = _('CONSTANT LENGTH')
+        REJECTED = _('REJECTED')
+        UNIFORM = _('UNIFORM')
+        CAT = _('CAT')
+        BOOL = _('BOOL')
+        NUM = _('NUM')
+        DATE = _('DATE')
+        URL = _('URL')
+        PATH = _('PATH')
+        COMPLEX = _('COMPLEX')
+        UNSUPPORTED = _('UNSUPPORTED')
+
+
 class Message(object):
     """A message object (type, values, column)."""
 
@@ -85,16 +120,31 @@ class Message(object):
 
     def fmt(self):
         # TODO: render in template
-        name = self.message_type.name.replace("_", " ")
+        name = _(self.message_type.name.replace("_", " "))
         if name == "HIGH CORRELATION":
-            name = '<abbr title="This variable has a high correlation with {num} fields: {title}">HIGH CORRELATION</abbr>'.format(
-                num=len(self.values["fields"]), title=", ".join(self.values["fields"])
-            )
+            prefix = _(
+                'This variable has a high correlation with '
+                '{num} fields: {title}')
+            postfix = _('HIGH CORRELATION')
+
+            name = ''.join([
+                '<abbr title="',
+                prefix.format(
+                    num=len(self.values["fields"]),
+                    title=", ".join(self.values["fields"])
+                ),
+                f'>{postfix}</abbr>',
+            ])
+
         return name
 
     def __repr__(self):
-        return "[{message_type}] warning on column {column}".format(
-            message_type=self.message_type.name, column=self.column_name
+        msg = _('warning on column')
+
+        return "[{message_type}] {msg} {column}".format(
+            msg=msg,
+            message_type=self.message_type.name,
+            column=self.column_name
         )
 
 

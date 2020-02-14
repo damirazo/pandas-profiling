@@ -4,8 +4,8 @@
         <ul class="nav nav-tabs" role="tablist">
             {% for tab in tabs %}
                 <li role="presentation"{% if loop.first %} class="active"{% endif %}>
-                    <a href="#{{ anchor_id }}-{{ tab.anchor_id }}"
-                       aria-controls="{{ anchor_id }}-{{ tab.anchor_id }}"
+                    <a href="#{{ anchor_id }}-{{ url_safe(tab.anchor_id) }}"
+                       aria-controls="{{ anchor_id }}-{{ url_safe(tab.anchor_id) }}"
                        role="tab"
                        data-toggle="tab">{{ tab.name }}</a>
                 </li>
@@ -14,7 +14,7 @@
 
         <div class="tab-content">
             {% for tab in tabs %}
-            <div role="tabpanel" class="tab-pane col-sm-12{% if loop.first %} active{% endif %}" id="{{ anchor_id }}-{{ tab.anchor_id }}">
+            <div role="tabpanel" class="tab-pane col-sm-12{% if loop.first %} active{% endif %}" id="{{ anchor_id }}-{{ url_safe(tab.anchor_id) }}">
                 {{ tab.render() }}
             </div>
             {% endfor %}

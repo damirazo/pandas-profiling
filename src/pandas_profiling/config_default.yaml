@@ -131,3 +131,5 @@ html:
       logo: ""
       primary_color: "#337ab7"
       full_width: False
+
+l10n: 'ru'

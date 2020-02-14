@@ -64,6 +64,7 @@ def test_modular_absent(df):
 
 
 def test_modular_present(df):
+    from pandas_profiling.utils.l10n import gettext as _
     profile = df.profile_report(
         title="Modular test",
         samples={"head": 10, "tail": 10},
@@ -84,6 +85,6 @@ def test_modular_present(df):
     )
 
     html = profile.to_html()
-    assert "Correlations</h1>" in html
-    assert "Sample</h1>" in html
-    assert "Missing values</h1>" in html
+    assert _('Correlations') + "</h1>" in html
+    assert _('Sample') + "</h1>" in html
+    assert _('Missing values') + "</h1>" in html

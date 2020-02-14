@@ -1,0 +1,30 @@
+image: python:3.6-alpine
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - python setup.py compile_catalog
+    - python setup.py sdist
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+  when: manual
+  only:
+    - merge_requests
+
+test:
+  stage: test
+  before_script:
+    - pip install --upgrade pip six
+    - pip install -r requirements.txt
+    - pip install -r requirements-test.txt
+    - pip install -e .[notebook,app,html]
+  script:
+    - pytest --cov=. tests/unit/
+    - pytest --cov=. tests/issues/
+    - pytest --cov=. --nbval tests/notebooks/

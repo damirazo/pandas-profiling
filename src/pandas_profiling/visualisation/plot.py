@@ -14,6 +14,8 @@ from pkg_resources import resource_filename
 
 from pandas_profiling.config import config
 from pandas_profiling.model.base import Variable
+from pandas_profiling.utils.l10n import gettext as _
+
 
 register_matplotlib_converters()
 matplotlib.style.use(resource_filename(__name__, "pandas_profiling.mplstyle"))
@@ -42,7 +44,7 @@ def _plot_histogram(
         # Workaround for https://github.com/pandas-dev/pandas/issues/17372
         fig = plt.figure(figsize=figsize)
         plot = fig.add_subplot(111)
-        plot.set_ylabel("Frequency")
+        plot.set_ylabel(_("Frequency"))
         plot.hist(
             series.dropna().values,
             facecolor=config["html"]["style"]["primary_color"].get(str),
@@ -136,8 +138,8 @@ def correlation_matrix(data: pd.DataFrame, vmin: int = -1) -> str:
 
 
 def scatter_complex(series) -> str:
-    plt.ylabel("Imaginary")
-    plt.xlabel("Real")
+    plt.ylabel(_("Imaginary"))
+    plt.xlabel(_("Real"))
 
     if len(series) > 1000:
         plt.hexbin(series.real, series.imag)

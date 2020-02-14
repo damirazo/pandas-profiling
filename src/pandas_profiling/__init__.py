@@ -2,6 +2,7 @@
 
 .. include:: ../../README.md
 """
+import os
 import sys
 import warnings
 import json
@@ -13,6 +14,7 @@ import numpy as np
 from tqdm.auto import tqdm
 
 from pandas_profiling.model.messages import MessageType
+from pandas_profiling.utils.l10n import LocalizationRegistry
 from pandas_profiling.version import __version__
 from pandas_profiling.utils.dataframe import rename_index
 from pandas_profiling.utils.paths import get_config_default, get_config_minimal
@@ -21,6 +23,15 @@ from pandas_profiling.controller import pandas_decorator
 from pandas_profiling.model.describe import describe as describe_df
 from pandas_profiling.model.messages import MessageType
 from pandas_profiling.report import get_report_structure
+from pandas_profiling.utils.l10n import gettext as _
+
+
+CURRENT_DIR = os.path.abspath(os.path.dirname(__file__))
+PROJECT_BASE_DIR = os.path.join(
+    CURRENT_DIR,
+    '..',
+    '..',
+)
 
 
 class ProfileReport(object):
@@ -44,6 +55,23 @@ class ProfileReport(object):
         if config_file:
             config.set_file(str(config_file))
         config.set_kwargs(kwargs)
+
+        # localization settings
+        l10n_code = None
+        default_l10n_code = 'en-US'
+        if config['l10n'].exists():
+            l10n_code = config['l10n']
+
+        self.l10n_code = l10n_code or default_l10n_code
+
+        LocalizationRegistry.activate(
+            code=str(self.l10n_code),
+            locale_dir=os.path.join(
+                PROJECT_BASE_DIR,
+                'locale',
+            ),
+        )
+        # end localization settings
 
         self.date_start = datetime.utcnow()
 
@@ -72,7 +100,7 @@ class ProfileReport(object):
         disable_progress_bar = not config["progress_bar"].get(bool)
 
         with tqdm(
-            total=1, desc="build report structure", disable=disable_progress_bar
+            total=1, desc=_("build report structure"), disable=disable_progress_bar
         ) as pbar:
             self.report = get_report_structure(
                 self.date_start, self.date_end, self.sample, description_set
